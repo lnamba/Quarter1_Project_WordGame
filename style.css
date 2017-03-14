@@ -1,0 +1,31 @@
+#view {
+  border: 10px solid black;
+  width: 70vw;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 30px
+}
+.col-md-3+.col-md-3 {
+border:0;
+}
+
+#answer_div {
+  /*font-size: 2em;*/
+}
+
+#guess_bar {
+  border: 1px solid black;
+}
+
+#guess_button {
+  vertical-align: center;
+  margin: 10px;
+}
+
+.working {
+  background-color: #FFF176;
+}
+
+.complete {
+  background-color: #8BC34A;
+}
