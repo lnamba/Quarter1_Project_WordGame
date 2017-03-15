@@ -4727,7 +4727,7 @@ $(document).ready(function(){
     finalWords.map(function(i, index){
       $.getJSON(`http://api.wordnik.com:80/v4/word.json/${i}/definitions?limit=1&includeRelated=true&sourceDictionaries=all&useCanonical=true&includeTags=false&api_key=da315e3cd6b9d073f722503e4d2015774237e56c91d0acc29`, function(data){
         $("#clues").append(`<div class="col-md-8" id="clue${index+1}">${data[0].text}</div>`).css({"font-size":"1em"});
-        $(`#clue${index+1}`).css({"border":"1px solid black"});
+        $(`#clue${index+1}`).css({"border":"1px solid black", "font-family":`'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif`});
         definitions.push(`${data[0].text}`);
         $("#clues").append(`<div class="col-md-2 text-center" id="wordLength${index+1}">${i.length} letters</div>`).css({"font-size":"1em"});
         $(`#wordLength${index+1}`).css({"border":"1px solid black"});
@@ -4763,7 +4763,7 @@ $(document).ready(function(){
     // loops through the chunkedArr and appends a new div to the wordbank
     chunkedArr.map(function(j, ind){
       $("#wordbank").append(`<div class="col-md-3 tile text-center" id="word${ind+1}">${j}</div>`).css({"font-size":"3em"});
-      $(`#word${ind+1}`).css({"border":"1px solid black"});
+      $(`#word${ind+1}`).css({"border":"1px solid black", "font-family":`'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif`});
     });
     console.log("The shuffled chunk array is:" + chunkedArr);
 
@@ -4783,7 +4783,6 @@ $(document).ready(function(){
       appendedWord = $("#answer_div").text();
     });
 
-
     //when the user clicks the "Guess" button
     // get the value of the word
     $("#guess_button").click(function(){
@@ -4797,7 +4796,6 @@ $(document).ready(function(){
           $(`#answer${index+1}`).css({"text-align":"center"});
           for(var key in objOrdered) {
             if(key === i) {
-              console.log(objOrdered[key]);
               // loop through elements with class "tile" and if the element's id is in the selectedTiles array, give it class complete
               $(".tile").each(function(){
                 if (selectedTiles.indexOf($(this).attr("id")) > -1) {
@@ -4808,9 +4806,11 @@ $(document).ready(function(){
           }
         }
       });
-      //if all square are filled in, send congrats messages
-
+      // reset selectedTiles to empty
+      selectedTiles = [];
     });
+
+    //if all square are filled in, send congrats messages
 
 
 });
