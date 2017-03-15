@@ -1,3 +1,9 @@
+#heading_text {
+  font-family: 'Slackey', cursive;
+  font-family: 'Comfortaa', cursive;
+  font-family: 'Bungee Shade', cursive;
+}
+
 #view {
   border: 10px solid black;
   width: 70vw;
