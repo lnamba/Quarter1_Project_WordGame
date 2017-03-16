@@ -28,20 +28,32 @@ border:0;
 }
 
 .working {
-  background-color: #FFF176;
+  background-color: #FFEE58;
 }
 
 .complete {
-  background-color: #8BC34A;
+  background-color: #B0D531;
 }
 
 #cred {
-  font-family: 'Comfortaa', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 20px 0 0 0;
 }
 
 footer {
-  font-family: 'Comfortaa', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 1.5em;
   padding: 20px;
+}
+
+.hover {
+  box-shadow: inset 0 0 5px 5px #5BC0DE;
+  transition: 0.5s ease;
+}
+
+/*Congrats Page*/
+
+ul:not(.hidden) li {
+    transform: translateX(0px) translateY(0px) !important;
+    opacity:1 !important;
 }

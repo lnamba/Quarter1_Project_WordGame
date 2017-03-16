@@ -5,6 +5,9 @@ $(document).ready(function(){
   var appendedWord = "";
   var objOrdered = {};
   var selectedTiles = [];
+  var alreadyUsedWords = [];
+  var count = 0;
+  var congratsPhrases = ["Awesome", "Wonderful", "Great Job", "Fantastic", "Terrific", "Superb", "Amazing", "Brilliant", "Well Done", "Excellent", "Nice Work", "Wow", "Bravo", "Perfect", "Genius"];
   var randomWords = ['about',
   'search',
   'other',
@@ -4727,12 +4730,12 @@ $(document).ready(function(){
     finalWords.map(function(i, index){
       $.getJSON(`http://api.wordnik.com:80/v4/word.json/${i}/definitions?limit=1&includeRelated=true&sourceDictionaries=all&useCanonical=true&includeTags=false&api_key=da315e3cd6b9d073f722503e4d2015774237e56c91d0acc29`, function(data){
         $("#clues").append(`<div class="col-md-8" id="clue${index+1}">${data[0].text}</div>`).css({"font-size":"1em"});
-        $(`#clue${index+1}`).css({"border":"1px solid black", "font-family":`'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif`});
+        $(`#clue${index+1}`).css({"border":"1px solid black", "font-family":`'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif`, "padding":"8px 15px"});
         definitions.push(`${data[0].text}`);
         $("#clues").append(`<div class="col-md-2 text-center" id="wordLength${index+1}">${i.length} letters</div>`).css({"font-size":"1em"});
-        $(`#wordLength${index+1}`).css({"border":"1px solid black"});
+        $(`#wordLength${index+1}`).css({"border":"1px solid black", "padding":"8px 15px"});
         $("#clues").append(`<div class="col-md-2 answer" id="answer${index+1}"></div>`);
-        $(`#answer${index+1}`).css({"border":"1px solid black"});
+        $(`#answer${index+1}`).css({"border":"1px solid black", "padding":"8px 15px"});
       });
 
       // break each word in three-letter increments
@@ -4763,43 +4766,63 @@ $(document).ready(function(){
     // loops through the chunkedArr and appends a new div to the wordbank
     chunkedArr.map(function(j, ind){
       $("#wordbank").append(`<div class="col-md-3 tile text-center" id="word${ind+1}">${j}</div>`).css({"font-size":"3em"});
-      $(`#word${ind+1}`).css({"border":"1px solid black", "font-family":`'Ubuntu', 'Helvetica Neue', Helvetica, Arial, sans-serif`});
+      $(`#word${ind+1}`).css({"border":"1px solid black", "font-family":`'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif`});
     });
     console.log("The shuffled chunk array is:" + chunkedArr);
 
+    $(".tile").hover(function(){
+      $(this).addClass("hover");
+    }, function(){
+      $(this).removeClass("hover");
+    });
+
     // when the user clicks a tile, append to the answer_div
     $(".tile").click(function(){
-      // the id of the tile is pushed into selectedTiles
-      selectedTiles.push($(this).attr("id"));
-      // if the text of the tile user clicks is already in the answer box, don't append
-      var regg = $(this).text();
-      var rx = new RegExp(regg, "g");
-      var currAnswer = $("#answer_div").text().trim();
-      if (!rx.test(currAnswer)) {
-        $("#answer_div").append($(this).text()).css({"font-size":"2em"});
+      // the id of the tile is pushed into selectedTiles if it is not there already
+      if (selectedTiles.indexOf($(this).attr("id")) === -1) {
+        selectedTiles.push($(this).attr("id"));
+      }
+      // if the tile clicked's id is not in the alreadyUsedWords array, append the text of the element to answer_div
+      if ((alreadyUsedWords.indexOf($(this).attr("id")) === -1)) {
+         $("#answer_div").append($(this).text()).css({"font-size":"2em", "font-family":`'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif`});
       }
       // add the class yellow which changes the background-color
       $(this).addClass("working");
       appendedWord = $("#answer_div").text();
+
     });
 
-    //when the user clicks the "Guess" button
-    // get the value of the word
+    Object.values(objOrdered).map(function(l){
+      count += l.length;
+    })
+    // function so when the user clicks the "Guess" button get the value of the word
     $("#guess_button").click(function(){
+      console.log("The selected tiles are: "+selectedTiles);
+      // on click empty answer_div and remove yellow background working class
       $("#answer_div").empty();
       $(".tile").removeClass("working");
-      console.log("This is the guessed word: " + appendedWord.trim());
-      var guessedWord = appendedWord.trim(); // value of the word the user created with word chunks
-      finalWords.map(function(i, index){ // map through finalWords
+      var guessedWord = appendedWord.trim(); // get the value of the word the user created in answer_div
+      finalWords.map(function(i, index){ // map through finalWords (order is important, index is used to get corresponding answer div)
         if (i === guessedWord) { // if the current word is the same as the value the user created...
-          $(`#answer${index+1}`).text(i); // ...input the definition array element with the same index value as the finalWords element and make it the text
-          $(`#answer${index+1}`).css({"text-align":"center"});
+          $(`#answer${index+1}`).text(i); // ...make it the text in the answer corresponding indexed column
+          $(`#answer${index+1}`).css({"text-align":"center"}); // ex. if finalWords[0], then #answer[0] (indices align)
           for(var key in objOrdered) {
-            if(key === i) {
-              // loop through elements with class "tile" and if the element's id is in the selectedTiles array, give it class complete
+            if(key === i) { // loop through keys in objOrdered, if the key is the same as the word they guessed then we know it is correct
+              // then loop through elements with class "tile"
               $(".tile").each(function(){
-                if (selectedTiles.indexOf($(this).attr("id")) > -1) {
+                if (selectedTiles.indexOf($(this).attr("id")) > -1) { //if the element's id is in the selectedTiles array(if the selected tile's id matches the current tile's id), give it class complete
                   $(this).addClass("complete");
+                  // if the current .tile element's id is not in the alreadyUsedWords array then the word has not been correctly guessed
+                  // so push the id into the alreadyUsedWords array, so it can't be used again
+                  if (alreadyUsedWords.indexOf($(this).attr("id")) === -1) {
+                    alreadyUsedWords.push($(this).attr("id"));
+                  }
+                  console.log(count);
+                  console.log(alreadyUsedWords.length);
+
+                  if (alreadyUsedWords.length === count) {
+                    congratulateUser();
+                  }
                 }
               });
             }
@@ -4807,10 +4830,55 @@ $(document).ready(function(){
         }
       });
       // reset selectedTiles to empty
+      console.log("This is the alreadyUsedWords array"+alreadyUsedWords);
       selectedTiles = [];
     });
 
-    //if all square are filled in, send congrats messages
-
+    // //if all square are filled in, send congrats messages
+    // function congratulateUser(){
+    //   // empty body, background color black, pick a random cogratulatory message
+    //   $("body").empty();
+    //   $("body").css({"background-color":"black"}).append(`<ul class="text-animate" id="congratsUL"></ul>`);
+    //   var congratsInd = Math.floor(Math.random()*congratsPhrases.length);
+    //   var randomCongratsMessage = congratsPhrases[congratsInd];
+    //   // CSS transition
+    //   $("#congratsUL").css({"position":"absolute", "top":"50%", "left":"50%", "list-style-type":"none", "transform":"translateX(-50%) translateY(-50%)"});
+    //   for (var i = 0; i < randomCongratsMessage.length; i++) {
+    //     $("#congratsUL").append(`<li>${randomCongratsMessage[i]}</li>`);
+    //
+    //     // get random number between 1 & 300 that is either positive or negative
+    //     var randomNum = Math.floor(Math.random()*250) + 1;
+    //     randomNum *= Math.floor(Math.random()*2) === 1 ? 1 : -1;
+    //     // position the li elements on the page randomly
+    //     $(`#congratsUL.hidden li:nth-child(${i+1})`).css({"transform":`translateX(${randomNum}px) translateY(${randomNum}px)`, "opacity":"0"});
+    //   }
+    //   setTimeout(function(){
+    //     $("#congratsUL").attr("style", "");
+    //   }, 500);
+    // }
+    function congratulateUser(){
+      // empty body, background color black, pick a random cogratulatory message
+      $("body").empty();
+      $("body").css({"background-color":"black"}).append(`<ul class="text-animate hidden" id="congratsUL"></ul>`);
+      var congratsInd = Math.floor(Math.random()*congratsPhrases.length);
+      var randomCongratsMessage = congratsPhrases[congratsInd];
+      // CSS transition
+      $("#congratsUL").css({"position":"absolute", "top":"50%", "left":"50%", "list-style-type":"none", "transform":"translateX(-50%) translateY(-50%)"});
+      for (var i = 0; i < randomCongratsMessage.length; i++) {
+        $("#congratsUL").append(`<li>${randomCongratsMessage[i]}</li>`);
+        $("#congratsUL li").css({"color":"white", "margin-right":"30px", "opacity":"1", "display":"inline-block", "font-size":"3.5em", "font-family":"'Bungee Shade', 'Helvetica Neue', Helvetica, Arial", "transition":"all 2.5s ease"});
+        // $("#congratsUL.hidden li").css({"opacity":"0"});
+        $("#congratsUL li:last-child").css({"margin-right":"0"});
+        // get random number between 1 & 300 that is either positive or negative
+        var randomNum = Math.floor(Math.random()*250) + 1;
+        randomNum *= Math.floor(Math.random()*2) === 1 ? 1 : -1;
+        // position the li elements on the page randomly
+        $(`#congratsUL.hidden li:nth-child(${i+1})`).css({"transform":`translateX(${randomNum}px) translateY(${randomNum}px)`, "opacity":"0"});
+      }
+      setTimeout(function(){
+        $("#congratsUL").removeClass("hidden")
+      }, 500);
+    }
+    // removes the hidden class so letters arrange on page
 
 });
