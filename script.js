@@ -7,6 +7,8 @@ $(document).ready(function(){
   var selectedTiles = [];
   var alreadyUsedWords = [];
   var count = 0;
+  var notComplete = [];
+  var shuffleText = "";
   var congratsPhrases = ["Awesome", "Wonderful", "Great Job", "Fantastic", "Terrific", "Superb", "Amazing", "Brilliant", "Well Done", "Excellent", "Nice Work", "Wow", "Bravo", "Perfect", "Genius"];
   var randomWords = ['about',
   'search',
@@ -290,13 +292,13 @@ $(document).ready(function(){
   'paper',
   'single',
   'example',
-  'girls',
+  'credulity',
   'password',
   'latest',
   'question',
-  'changes',
+  'change',
   'night',
-  'texas',
+  'desiccate',
   'poker',
   'status',
   'browse',
@@ -592,7 +594,7 @@ $(document).ready(function(){
   'solution',
   'mature',
   'rather',
-  'weeks',
+  'week',
   'addition',
   'supply',
   'nothing',
@@ -602,8 +604,8 @@ $(document).ready(function(){
   'union',
   'jewelry',
   'clothing',
-  'names',
-  'robert',
+  'name',
+  'clemency',
   'homepage',
   'skill',
   'islands',
@@ -615,7 +617,7 @@ $(document).ready(function(){
   'leave',
   'teens',
   'woman',
-  'sellers',
+  'seller',
   'middle',
   'cable',
   'taking',
@@ -2258,12 +2260,12 @@ $(document).ready(function(){
   'syntax',
   'prison',
   'skill',
-  'chairs',
+  'chair',
   'everyday',
   'moves',
   'inquiry',
   'grain',
-  'checked',
+  'check',
   'exhibit',
   'throw',
   'trend',
@@ -2272,7 +2274,7 @@ $(document).ready(function(){
   'desert',
   'oldest',
   'sugar',
-  'mercury',
+  'barter',
   'simile',
   'handbook',
   'navigate',
@@ -2688,10 +2690,10 @@ $(document).ready(function(){
   'gospel',
   'shore',
   'love',
-  'induced',
+  'humble',
   'knight',
   'loose',
-  'linking',
+  'blink',
   'appeal',
   'earned',
   'illness',
@@ -2699,8 +2701,8 @@ $(document).ready(function(){
   'parker',
   'teenage',
   'triple',
-  'cooper',
-  'vines',
+  'evanescent',
+  'vine',
   'secured',
   'unusual',
   'answered',
@@ -2787,8 +2789,8 @@ $(document).ready(function(){
   'opposite',
   'rapidly',
   'dealtime',
-  'intro',
-  'mercedes',
+  'introduce',
+  'iconoclast',
   'clerk',
   'outline',
   'tramadol',
@@ -2815,7 +2817,7 @@ $(document).ready(function(){
   'license',
   'essay',
   'dialogue',
-  'camps',
+  'camp',
   'declared',
   'aaron',
   'handheld',
@@ -2826,7 +2828,7 @@ $(document).ready(function(){
   'switch',
   'consult',
   'greatly',
-  'blogging',
+  'marathon',
   'cycling',
   'midnight',
   'commonly',
@@ -2891,8 +2893,8 @@ $(document).ready(function(){
   'denied',
   'donation',
   'outer',
-  'deaths',
-  'rivers',
+  'death',
+  'river',
   'tales',
   'thumb',
   'seeds',
@@ -2943,10 +2945,10 @@ $(document).ready(function(){
   'athens',
   'judge',
   'retired',
-  'remarks',
+  'remark',
   'detected',
   'decade',
-  'walked',
+  'walk',
   'arising',
   'bracelet',
   'afraid',
@@ -2978,7 +2980,7 @@ $(document).ready(function(){
   'contestant',
   'costume',
   'twerp',
-  'berkeley',
+  'juxtapose',
   'voted',
   'killer',
   'motorcycle',
@@ -3008,17 +3010,17 @@ $(document).ready(function(){
   'floral',
   'builders',
   'struggle',
-  'schemes',
+  'scheme',
   'neutral',
   'fisher',
   'bedding',
-  'joining',
-  'heading',
+  'languid',
+  'hearty',
   'equally',
   'bearing',
   'combo',
-  'seniors',
-  'worlds',
+  'senior',
+  'world',
   'guilty',
   'haven',
   'tablet',
@@ -3033,9 +3035,9 @@ $(document).ready(function(){
   'resolve',
   'money',
   'toner',
-  'latex',
-  'branches',
-  'anymore',
+  'marginalize',
+  'branch',
+  'anything',
   'cryptic',
   'heist',
   'alien',
@@ -3051,8 +3053,8 @@ $(document).ready(function(){
   'frequent',
   'intelligent',
   'ceiling',
-  'pixels',
-  'ensuring',
+  'pixel',
+  'ensure',
   'swivel',
   'anybody',
   'diamond',
@@ -3070,7 +3072,7 @@ $(document).ready(function(){
   'stayed',
   'civic',
   'manual',
-  'watched',
+  'watch',
   'saver',
   'grill',
   'redeem',
@@ -3222,8 +3224,8 @@ $(document).ready(function(){
   'ranked',
   'jacket',
   'route',
-  'packed',
-  'excited',
+  'harsh',
+  'diffident',
   'outreach',
   'peanut',
   'recover',
@@ -3261,8 +3263,8 @@ $(document).ready(function(){
   'qualify',
   'hope',
   'diagram',
-  'burns',
-  'pumps',
+  'burn',
+  'pump',
   'footwear',
   'pineapple',
   'people',
@@ -3349,7 +3351,7 @@ $(document).ready(function(){
   'ceremony',
   'somehow',
   'arrested',
-  'yamaha',
+  'yesteryear',
   'barbarian',
   'gain',
   'dying',
@@ -3370,15 +3372,15 @@ $(document).ready(function(){
   'trainer',
   'organ',
   'stronger',
-  'volumes',
-  'advances',
+  'volume',
+  'advance',
   'lemon',
   'toxic',
   'darkness',
   'implied',
   'packing',
   'statute',
-  'rejected',
+  'reject',
   'satisfy',
   'shelter',
   'chapel',
@@ -3395,7 +3397,7 @@ $(document).ready(function(){
   'sheep',
   'railroad',
   'lecture',
-  'wines',
+  'vineyard',
   'nursery',
   'harder',
   'cheapest',
@@ -3404,12 +3406,12 @@ $(document).ready(function(){
   'salad',
   'tender',
   'paste',
-  'clouds',
+  'cloud',
   'travesty',
   'preserve',
   'unsigned',
-  'staying',
-  'easter',
+  'mortal',
+  'vibrant',
   'tulle',
   'praise',
   'veteran',
@@ -3427,10 +3429,10 @@ $(document).ready(function(){
   'composer',
   'sword',
   'absent',
-  'sells',
+  'sell',
   'hoping',
   'accessed',
-  'spirits',
+  'spirit',
   'coral',
   'pixel',
   'float',
@@ -3459,11 +3461,11 @@ $(document).ready(function(){
   'relate',
   'wage',
   'suffer',
-  'forests',
+  'forest',
   'invalid',
   'concert',
   'martial',
-  'males',
+  'solitude',
   'retain',
   'execute',
   'tunnel',
@@ -3491,17 +3493,17 @@ $(document).ready(function(){
   'trigger',
   'gathered',
   'notify',
-  'beaches',
-  'folders',
+  'brick',
+  'folder',
   'dramatic',
-  'surfaces',
+  'surface',
   'terrible',
-  'routers',
+  'router',
   'pendant',
-  'dresses',
+  'dress',
   'baptist',
   'hiring',
-  'clocks',
+  'clock',
   'females',
   'reflects',
   'taxation',
@@ -3510,7 +3512,7 @@ $(document).ready(function(){
   'surely',
   'theorem',
   'stylus',
-  'drums',
+  'drum',
   'chapel',
   'chick',
   'cattle',
@@ -3591,11 +3593,11 @@ $(document).ready(function(){
   'reveal',
   'canal',
   'amino',
-  'herbs',
-  'clinics',
-  'missions',
+  'herb',
+  'clinic',
+  'mission',
   'liar',
-  'costumes',
+  'costume',
   'strict',
   'earth',
   'drill',
@@ -3710,7 +3712,7 @@ $(document).ready(function(){
   'altar',
   'edges',
   'mixing',
-  'handles',
+  'handle',
   'skilled',
   'fitted',
   'harmony',
@@ -3873,7 +3875,7 @@ $(document).ready(function(){
   'chester',
   'snapshot',
   'caring',
-  'segments',
+  'segment',
   'dominant',
   'twist',
   'stomach',
@@ -3969,33 +3971,33 @@ $(document).ready(function(){
   'burn',
   'gentle',
   'deeper',
-  'muslims',
+  'mockery',
   'footage',
   'beach',
   'worthy',
   'regarded',
-  'marion',
+  'geek',
   'lobby',
-  'egyptian',
-  'tunisia',
+  'rupture',
+  'barricade',
   'outlined',
   'headline',
-  'treats',
+  'treat',
   'punch',
   'cowboy',
   'enormous',
   'karma',
   'consist',
-  'betty',
+  'aplomb',
   'queen',
   'defeat',
   'click',
   'tribe',
   'naughty',
-  'hazards',
-  'insured',
+  'debris',
+  'conspicuous',
   'tenant',
-  'cabinets',
+  'cabinet',
   'tattoo',
   'shake',
   'algebra',
@@ -4032,7 +4034,7 @@ $(document).ready(function(){
   'fail',
   'retain',
   'marble',
-  'briefing',
+  'brie',
   'highland',
   'modular',
   'giants',
@@ -4047,13 +4049,13 @@ $(document).ready(function(){
   'cylinder',
   'witch',
   'puppy',
-  'graphs',
+  'graph',
   'surround',
   'revenge',
-  'expires',
-  'enemies',
-  'finances',
-  'accepts',
+  'expire',
+  'eavesdrop',
+  'finance',
+  'ember',
   'enjoying',
   'patrol',
   'smell',
@@ -4065,14 +4067,14 @@ $(document).ready(function(){
   'satin',
   'deserve',
   'promotion',
-  'worried',
-  'tunes',
+  'jargon',
+  'sequence',
   'garbage',
   'combine',
   'phrase',
   'boring',
-  'speeches',
-  'reaches',
+  'speech',
+  'breach',
   'schema',
   'catalog',
   'quizzes',
@@ -4088,18 +4090,18 @@ $(document).ready(function(){
   'circuit',
   'floppy',
   'texture',
-  'handbags',
+  'meticulous',
   'incur',
-  'porridge',
+  'pretend',
   'thunder',
   'caution',
-  'locks',
+  'monotonous',
   'namely',
   'pale',
-  'pirates',
+  'friendship',
   'aerial',
   'rebel',
-  'origins',
+  'origin',
   'hired',
   'makeup',
   'textile',
@@ -4125,7 +4127,7 @@ $(document).ready(function(){
   'twisted',
   'merit',
   'enzyme',
-  'planes',
+  'plainly',
   'tackle',
   'disk',
   'condo',
@@ -4189,16 +4191,16 @@ $(document).ready(function(){
   'trust',
   'talented',
   'pillow',
-  'derek',
+  'pristine',
   'shorter',
-  'harley',
+  'replenish',
   'relying',
   'final',
   'steal',
   'parcel',
   'refined',
   'fifteen',
-  'fears',
+  'versatile',
   'predict',
   'boutique',
   'acrylic',
@@ -4214,7 +4216,7 @@ $(document).ready(function(){
   'blocked',
   'warrior',
   'parental',
-  'strikes',
+  'strike',
   'lesser',
   'marathon',
   'pressing',
@@ -4223,10 +4225,10 @@ $(document).ready(function(){
   'scout',
   'dealt',
   'warcraft',
-  'charms',
+  'charm',
   'catalyst',
   'trader',
-  'bucks',
+  'vigilant',
   'denial',
   'thrown',
   'prepaid',
@@ -4238,7 +4240,7 @@ $(document).ready(function(){
   'heath',
   'ballot',
   'agile',
-  'varying',
+  'vary',
   'remedies',
   'validity',
   'trustee',
@@ -4304,7 +4306,7 @@ $(document).ready(function(){
   'restored',
   'armor',
   'riders',
-  'chargers',
+  'charge',
   'remark',
   'dozens',
   'varies',
@@ -4366,7 +4368,7 @@ $(document).ready(function(){
   'penguin',
   'magical',
   'miracle',
-  'centered',
+  'center',
   'yearly',
   'wound',
   'writing',
@@ -4419,14 +4421,14 @@ $(document).ready(function(){
   'climb',
   'blowing',
   'heated',
-  'jackie',
-  'sparc',
+  'garrulous',
+  'spark',
   'cardiac',
   'dover',
   'brutal',
-  'learners',
+  'learner',
   'token',
-  'seekers',
+  'seek',
   'yields',
   'suited',
   'numeric',
@@ -4477,8 +4479,8 @@ $(document).ready(function(){
   'scary',
   'mattress',
   'banana',
-  'slovak',
-  'cakes',
+  'zeal',
+  'cake',
   'mixer',
   'remind',
   'charming',
@@ -4565,7 +4567,7 @@ $(document).ready(function(){
   'cannon',
   'circus',
   'promote',
-  'paxil',
+  'cajole',
   'spine',
   'trout',
   'enclosed',
@@ -4608,7 +4610,7 @@ $(document).ready(function(){
   'earning',
   'mailman',
   'nested',
-  'movers',
+  'sprawl',
   'verbal',
   'blink',
   'workflow',
@@ -4784,7 +4786,7 @@ $(document).ready(function(){
       }
       // if the tile clicked's id is not in the alreadyUsedWords array, append the text of the element to answer_div
       if ((alreadyUsedWords.indexOf($(this).attr("id")) === -1)) {
-         $("#answer_div").append($(this).text()).css({"font-size":"2em", "font-family":`'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif`});
+         $("#answer_div").append($(this).text()).css({"font-size":"2.4em", "font-family":`'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif`});
       }
       // add the class yellow which changes the background-color
       $(this).addClass("working");
@@ -4834,18 +4836,64 @@ $(document).ready(function(){
       selectedTiles = [];
     });
 
-    // //if all square are filled in, send congrats messages
+
+
+  $("#shuffle_button").click(function(){
+    notComplete = [];
+    $(".tile").removeClass("working");
+    $("#answer_div").empty(); //does it work?
+    selectedTiles = [];
+    $(".tile").not(".complete").each(function(i){
+      // notComplete.push($(this).attr("id"));
+      notComplete.push($(this).text());
+    });
+    console.log("This is the preshuffled notComplete array: "+notComplete);
+    chunkThisUp(notComplete);
+    console.log("This is the notComplete array shuffled: " + notComplete);
+    $(".tile").not(".complete").map(function(index, i){
+      $(i).text(notComplete[index]);
+    });
+  });
+
+  //if all square are filled in, send congrats messages
+  function congratulateUser(){
+
+  // empty body, background color black, pick a random congratulatory message
+  $("body").empty();
+  $("body").css({"background-color":"black"}).append(`<ul class="text-animate" id="congratsUL"></ul>`);
+  var congratsInd = Math.floor(Math.random()*congratsPhrases.length);
+  var randomCongratsMessage = congratsPhrases[congratsInd];
+
+  // CSS transition
+  $("#congratsUL").css({"position":"absolute", "top":"50%", "left":"50%", "list-style-type":"none", "transform":"translateX(-50%) translateY(-50%)"});
+  for (var i = 0; i < randomCongratsMessage.length; i++) {
+    $("#congratsUL").append(`<li>${randomCongratsMessage[i]}</li>`);
+
+    $("#congratsUL li:last-child").css({"margin-right":"0"});
+    // get random number between 1 & 300 that is either positive or negative
+    var randomNum = Math.floor(Math.random()*250) + 1;
+    randomNum *= Math.floor(Math.random()*2) === 1 ? 1 : -1;
+    // position the li elements on the page randomly
+    $(`#congratsUL li:nth-child(${i+1})`).css({"transform":`translateX(${randomNum}px) translateY(${randomNum}px)`, "opacity":"0"});
+  }
+  setTimeout(function(){
+    $("#congratsUL li").attr("style","");
+  }, 500);
+}
+
     // function congratulateUser(){
     //   // empty body, background color black, pick a random cogratulatory message
     //   $("body").empty();
-    //   $("body").css({"background-color":"black"}).append(`<ul class="text-animate" id="congratsUL"></ul>`);
+    //   $("body").css({"background-color":"black"}).append(`<ul class="text-animate hidden" id="congratsUL"></ul>`);
     //   var congratsInd = Math.floor(Math.random()*congratsPhrases.length);
     //   var randomCongratsMessage = congratsPhrases[congratsInd];
     //   // CSS transition
     //   $("#congratsUL").css({"position":"absolute", "top":"50%", "left":"50%", "list-style-type":"none", "transform":"translateX(-50%) translateY(-50%)"});
     //   for (var i = 0; i < randomCongratsMessage.length; i++) {
     //     $("#congratsUL").append(`<li>${randomCongratsMessage[i]}</li>`);
-    //
+    //     $("#congratsUL li").css({"color":"white", "margin-right":"30px", "opacity":"1", "display":"inline-block", "font-size":"3.5em", "font-family":"'Bungee Shade', 'Helvetica Neue', Helvetica, Arial", "transition":"all 2.5s ease"});
+    //     // $("#congratsUL.hidden li").css({"opacity":"0"});
+    //     $("#congratsUL li:last-child").css({"margin-right":"0"});
     //     // get random number between 1 & 300 that is either positive or negative
     //     var randomNum = Math.floor(Math.random()*250) + 1;
     //     randomNum *= Math.floor(Math.random()*2) === 1 ? 1 : -1;
@@ -4853,32 +4901,9 @@ $(document).ready(function(){
     //     $(`#congratsUL.hidden li:nth-child(${i+1})`).css({"transform":`translateX(${randomNum}px) translateY(${randomNum}px)`, "opacity":"0"});
     //   }
     //   setTimeout(function(){
-    //     $("#congratsUL").attr("style", "");
+    //     $("#congratsUL").removeClass("hidden")
     //   }, 500);
     // }
-    function congratulateUser(){
-      // empty body, background color black, pick a random cogratulatory message
-      $("body").empty();
-      $("body").css({"background-color":"black"}).append(`<ul class="text-animate hidden" id="congratsUL"></ul>`);
-      var congratsInd = Math.floor(Math.random()*congratsPhrases.length);
-      var randomCongratsMessage = congratsPhrases[congratsInd];
-      // CSS transition
-      $("#congratsUL").css({"position":"absolute", "top":"50%", "left":"50%", "list-style-type":"none", "transform":"translateX(-50%) translateY(-50%)"});
-      for (var i = 0; i < randomCongratsMessage.length; i++) {
-        $("#congratsUL").append(`<li>${randomCongratsMessage[i]}</li>`);
-        $("#congratsUL li").css({"color":"white", "margin-right":"30px", "opacity":"1", "display":"inline-block", "font-size":"3.5em", "font-family":"'Bungee Shade', 'Helvetica Neue', Helvetica, Arial", "transition":"all 2.5s ease"});
-        // $("#congratsUL.hidden li").css({"opacity":"0"});
-        $("#congratsUL li:last-child").css({"margin-right":"0"});
-        // get random number between 1 & 300 that is either positive or negative
-        var randomNum = Math.floor(Math.random()*250) + 1;
-        randomNum *= Math.floor(Math.random()*2) === 1 ? 1 : -1;
-        // position the li elements on the page randomly
-        $(`#congratsUL.hidden li:nth-child(${i+1})`).css({"transform":`translateX(${randomNum}px) translateY(${randomNum}px)`, "opacity":"0"});
-      }
-      setTimeout(function(){
-        $("#congratsUL").removeClass("hidden")
-      }, 500);
-    }
     // removes the hidden class so letters arrange on page
 
 });

@@ -22,6 +22,11 @@ border:0;
   border: 1px solid black;
 }
 
+#shuffle_button {
+  vertical-align: center;
+  margin: 10px;
+}
+
 #guess_button {
   vertical-align: center;
   margin: 10px;
@@ -38,6 +43,18 @@ border:0;
 #cred {
   font-family: 'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 20px 0 0 0;
+  color: #5B7FDE;
+  font-size: 1.1em;
+}
+
+#cred a {
+  color: #5BC0DE;
+}
+
+#cred a:hover {
+  color: #DE5B7F;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 footer {
@@ -47,13 +64,24 @@ footer {
 }
 
 .hover {
-  box-shadow: inset 0 0 5px 5px #5BC0DE;
+  box-shadow: inset 0 0 5px 5px #5B7FDE;
   transition: 0.5s ease;
+  background-color: #5BC0DE;
 }
 
 /*Congrats Page*/
 
-ul:not(.hidden) li {
+/*ul:not(.hidden) li {
     transform: translateX(0px) translateY(0px) !important;
     opacity:1 !important;
+}*/
+
+#congratsUL li {
+  color:white;
+  margin-right: 15px;
+  opacity: 1;
+  display:inline-block;
+  font-size:3.5em;
+  font-family:'Bungee Shade', 'Helvetica Neue', 'Helvetica, Arial';
+  transition: all 2.5s ease;
 }
