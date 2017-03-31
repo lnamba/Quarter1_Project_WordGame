@@ -9,7 +9,7 @@ $(document).ready(function(){
   var count = 0;
   var notComplete = [];
   var shuffleText = "";
-  var congratsPhrases = ["Awesome", "Wonderful", "Great Job", "Fantastic", "Terrific", "Superb", "Amazing", "Brilliant", "Well Done", "Excellent", "Nice Work", "Wow", "Bravo", "Perfect", "Genius"];
+  var congratsPhrases = ["Awesome", "Wonderful", "Great Job", "Fantastic", "Terrific", "Superb", "Amazing", "Brilliant", "Well Done", "Excellent", "Nice Work", "Smashing", "Sensational", "Marvelous", "Bravo", "Perfect", "Genius"];
   var randomWords = ['about',
   'search',
   'other',
@@ -214,7 +214,7 @@ $(document).ready(function(){
   'estate',
   'select',
   'window',
-  'photos',
+  'photo',
   'thread',
   'category',
   'large',
@@ -270,7 +270,7 @@ $(document).ready(function(){
   'payment',
   'login',
   'student',
-  'programs',
+  'program',
   'offers',
   'legal',
   'above',
@@ -368,7 +368,7 @@ $(document).ready(function(){
   'format',
   'least',
   'society',
-  'months',
+  'month',
   'safety',
   'friend',
   'trade',
@@ -411,7 +411,7 @@ $(document).ready(function(){
   'island',
   'record',
   'direct',
-  'records',
+  'automobile',
   'district',
   'calendar',
   'cost',
@@ -491,7 +491,7 @@ $(document).ready(function(){
   'silhouette',
   'position',
   'taken',
-  'listings',
+  'heirloom',
   'model',
   'known',
   'parfait',
@@ -4525,11 +4525,11 @@ $(document).ready(function(){
   'crest',
   'triumph',
   'welding',
-  'deferred',
+  'defer',
   'alloy',
   'condo',
   'plot',
-  'polished',
+  'mailman',
   'gently',
   'lock',
   'draw',
@@ -4870,8 +4870,8 @@ $(document).ready(function(){
     $("#congratsUL").append(`<li>${randomCongratsMessage[i]}</li>`);
 
     $("#congratsUL li:last-child").css({"margin-right":"0"});
-    // get random number between 1 & 300 that is either positive or negative
-    var randomNum = Math.floor(Math.random()*250) + 1;
+    // get random number between 1 & 350 that is either positive or negative
+    var randomNum = Math.floor(Math.random()*350) + 1;
     randomNum *= Math.floor(Math.random()*2) === 1 ? 1 : -1;
     // position the li elements on the page randomly
     $(`#congratsUL li:nth-child(${i+1})`).css({"transform":`translateX(${randomNum}px) translateY(${randomNum}px)`, "opacity":"0"});

@@ -81,7 +81,7 @@ footer {
   margin-right: 15px;
   opacity: 1;
   display:inline-block;
-  font-size:3.5em;
+  font-size:4em; /* was 3.5 */
   font-family:'Bungee Shade', 'Helvetica Neue', 'Helvetica, Arial';
   transition: all 2.5s ease;
 }
