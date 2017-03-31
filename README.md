@@ -2,7 +2,7 @@
 
 ## Objective
 
-For the Galvanize Full Stack Immersive first quarter project, our task was to create an app or website that fit the following criteria:
+This project was submitted as my first quarter project for the Galvanize g47 Full Stack Immersive Program. Our task was to create an app or website that fit the following criteria:
 
 * Use valid, semantic HTML
 * Use valid, minimally-specific CSS
@@ -14,7 +14,7 @@ For the Galvanize Full Stack Immersive first quarter project, our task was to cr
 
 ## Description
 
-This project was inspired by the game [7 Little Words] (http://www.7littlewords.com/). At the bottom, there are seven words broken into chunks of 1-3 letters and shuffled. The top is comprised of a bank of seven clues that describe the words at the bottom. The seven clues are generated through an API call to the [Wordnik API](http://developer.wordnik.com/docs.html). Also at the top, the number of letters of each word sits beside each clue.
+This project was inspired by the game [7 Little Words](http://www.7littlewords.com/). At the bottom, there are seven words broken into chunks of 1-3 letters and shuffled. The top is comprised of a bank of seven clues that describe the words at the bottom. The seven clues are generated through an API call to the [Wordnik API](http://developer.wordnik.com/docs.html). Also at the top, the number of letters of each word sits beside each clue.
 
 ## Rules
 
