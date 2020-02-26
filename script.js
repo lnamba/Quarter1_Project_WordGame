@@ -4730,10 +4730,12 @@ $(document).ready(function(){
     // for each of the unchunked seven words in finalWords, make an api call to thesaurus and get synonyms
     // append to page. Also append the length of each word and a blank space for the answer
     finalWords.map(function(i, index){
-      $.getJSON(`http://api.wordnik.com:80/v4/word.json/${i}/definitions?limit=1&includeRelated=true&sourceDictionaries=all&useCanonical=true&includeTags=false&api_key=da315e3cd6b9d073f722503e4d2015774237e56c91d0acc29`, function(data){
-        $("#clues").append(`<div class="col-md-8" id="clue${index+1}">${data[0].text}</div>`).css({"font-size":"1em"});
+      $.getJSON(`http://api.wordnik.com:80/v4/word.json/${i}/definitions?limit=5&includeRelated=true&sourceDictionaries=all&useCanonical=true&includeTags=false&api_key=da315e3cd6b9d073f722503e4d2015774237e56c91d0acc29`, function(data){
+        const text = data.find((def) => def.text).text;
+
+        $("#clues").append(`<div class="col-md-8" id="clue${index+1}">${text}</div>`).css({"font-size":"1em"});
         $(`#clue${index+1}`).css({"border":"1px solid black", "font-family":`'Rubik', 'Helvetica Neue', Helvetica, Arial, sans-serif`, "padding":"8px 15px"});
-        definitions.push(`${data[0].text}`);
+        definitions.push(`${text}`);
         $("#clues").append(`<div class="col-md-2 text-center" id="wordLength${index+1}">${i.length} letters</div>`).css({"font-size":"1em"});
         $(`#wordLength${index+1}`).css({"border":"1px solid black", "padding":"8px 15px"});
         $("#clues").append(`<div class="col-md-2 answer" id="answer${index+1}"></div>`);
